@@ -19,10 +19,12 @@ Payment routing is the path, or route, that a transaction takes after a customer
 - An intuitive graphical interface, allows you to edit routing rules easily, without any coding.
 - The ability to create as many various routing schemes as you wish for greater flexibility. You can revise them to define the most efficient ones.
 - A powerful toolkit of accompanying features designed to boost the routing process with automatic sync with the main server.
-- 
+ 
 ## Basic Payment Terminologies
 **Merchant**: A merchant is a type of business bank account that allows a business to accept and process payment transactions.
+
 **Payment Service Provider (PSP)**: PSPs are third-party companies that help business owners accept a wide range of online payment methods.
+
 **Payment Method**: A payment method is a way that customers pay for a product or service such as credit cards, prepaid cards, debit cards, or mobile payments
 
 ## Rules
@@ -35,33 +37,34 @@ Payment routing is the path, or route, that a transaction takes after a customer
 - Users can delete the rule too. It’s a soft delete and the rule will not be permanently deleted from the database.
 
 ## Rule Structure
-String name
-String description
-int priority (unique for each category)
-String category (merchant + payment-method)
-List<RuleCondition> ruleConditions
-RuleResult
-RuleCondition
-Operand
-Operator
-Value
-Rule Result
-List<ResultOption> resultOptions
-Result Option
-String pspMerchantId;
-double trafficPercentage;
-String fallbackPspMerchantId;
-UI Features
-a) Navigation Bar With List view layout for each page->
-i) NB Merchant (view)
-ii) Psp Merchant ( view)
-iii) PSP Merchant Method (view)
-iv) Payment Routing => MVP
+- String name
+- String description
+- int priority (unique for each category)
+- String category (merchant + payment-method)
+- List<RuleCondition> ruleConditions
+- List<ResultOption> resultOptions
 
-b) Routing Page ->
-i ) List of all rules defined for merchant & payment method along with editing an individual rule.
-ii) Selection pane for Merchant and Payment Method.
-iii) Buttons to add a new rule, display inactive rules, and force a sync with the main server.
+### RuleCondition
+    - Operand
+    - Operator
+    - Value
+  
+### Rule Result
+    - String pspMerchantId;
+    - double trafficPercentage;
+    - String fallbackPspMerchantId;
+  
+## UI Features
+1. Navigation Bar With List view layout for each page->
+    - NB Merchant (view)
+    - Psp Merchant ( view)
+    - PSP Merchant Method (view)
+    - Payment Routing => MVP
+
+2. Routing Page ->
+    - List of all rules defined for merchant & payment method along with editing an individual rule.
+    - Selection pane for Merchant and Payment Method.
+    - Buttons to add a new rule, display inactive rules, and force a sync with the main server.
 
 ## Backend APIs
 - GET /merchant/{id}, GET /merchant/all
